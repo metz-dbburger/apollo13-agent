@@ -1,0 +1,2 @@
+# 仅真 LLM 模式需要；--offline 模式零依赖
+openai>=1.0
