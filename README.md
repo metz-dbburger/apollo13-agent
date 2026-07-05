@@ -28,7 +28,7 @@ python3 houston.py --offline
 
 You'll watch a complete rescue: Houston directs the crew step by step to collect materials and assemble the adapter. Two classic failures are deliberately scripted in:
 
-- **Turn 4** — Houston asks for *a sock*, which isn't on this demo's material list, and the cabin rejects the call: *"say again"* (**tool hallucination**. Historical footnote: in the real mission transcript a sock *was* once mentioned as an option for plugging a bypass hole — the crew ended up stuffing a towel. The core build never relied on a sock.)
+- **Turn 4** — Houston asks for *a sock*. The cabin rejects it because the demo's onboard inventory **intentionally excludes socks** — this is the **tool hallucination** case: the model calls for something that doesn't exist, and the runtime sends it back. (Historical note: in the real mission transcript Kerwin *did* mention "wetwipe / sock / crumpled tape" as candidate bypass-hole plugs, and the crew ended up stuffing a towel. The core mailbox adapter never relied on a sock.)
 - **Turn 7** — Houston reports the job done before the adapter is even assembled. Ground refuses sign-off against hard acceptance criteria (**fake done**)
 
 **Let a real LLM play Houston (any OpenAI-compatible API):**
