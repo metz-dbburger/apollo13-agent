@@ -6,7 +6,7 @@
 
 April 1970. The engineers in Houston had all the knowledge in the world, but couldn't lay a finger on the spacecraft. The astronauts had hands, but didn't know what to build. Between them: one radio loop.
 
-That is exactly how every AI agent works today:
+That is the basic move behind many LLM agents today:
 
 | Apollo 13 | Agent system | Where in the code |
 |---|---|---|
@@ -51,7 +51,7 @@ A real model takes a different route every run — sometimes it hallucinates a t
 2. **An agent is not a new species — it's a loop.** The main loop is under thirty lines: the model speaks; if it's a call, validate & execute & paste the result back; stop at the acceptance criteria or when you hit a rope (turn cap / red line).
 3. **Hands need rules more than brains do.** Validation, rejection, refusal, caps — the "don't trust the model" parts are the real body of agent engineering.
 
-The real Apollo 13 "mailbox" was built from the command module's square LiOH canisters, plastic bags, plastic-coated cue cards, suit hoses, and duct tape. CAPCOM Joe Kerwin read the build procedure up to the crew over about an hour. See the [NASA Apollo Flight Journal](https://www.nasa.gov/history/afj/ap13fj/15day4-mailbox.html).
+The real Apollo 13 "mailbox" was built from the command module's square LiOH canisters, plastic bags, plastic-coated cue cards, suit hoses, and grey duct tape. CAPCOM Joe Kerwin read the build procedure up to the crew over about an hour. See the [NASA Apollo Flight Journal](https://www.nasa.gov/history/afj/ap13fj/15day4-mailbox.html).
 
 This repo is the companion code for a Chinese-language article on how agents work (《大模型没有手》, "The Model Has No Hands").
 
