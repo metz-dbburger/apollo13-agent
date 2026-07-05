@@ -51,7 +51,7 @@ python3 houston.py
 2. **Agent 不是新物种，是一个循环。** 主循环不到三十行：模型说话，是喊话就校验执行、结果回贴，到验收标准或撞到绳子（圈数/红线）就停。
 3. **手比脑更需要规矩。** 校验、打回、拒收、上限，这些"不信任模型"的部分，才是 agent 工程的主体。
 
-真实的阿波罗13号"信箱"改装：材料是指令舱的方形滤芯、塑料袋、塑封提示卡、宇航服软管和灰胶带，CAPCOM Joe Kerwin 用了约一小时把步骤逐条念上太空。参考 [NASA Apollo Flight Journal](https://www.nasa.gov/history/afj/ap13fj/15day4-mailbox.html)。
+真实的阿波罗13号"信箱"改装：材料是指令舱的方形滤芯、塑料袋、塑封提示卡、宇航服软管和灰胶带，CAPCOM Joe Kerwin 用了约一小时把步骤逐条念上太空。参考 [Apollo Journals 通话记录](https://apollojournals.org/alsj//a13/a13_LIOH_Adapter.html)。
 
 ## License
 
