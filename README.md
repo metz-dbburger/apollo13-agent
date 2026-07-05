@@ -1,55 +1,59 @@
-# 阿波罗13号 Agent 演示 🚀
+# Apollo 13 Agent Demo 🚀
 
-**《大模型没有手》配套代码。一个文件，看懂 AI Agent 的全部骨架。**
+**English | [简体中文](README.zh-CN.md)**
 
-1970年4月，休斯顿的工程师有全部的知识，却摸不到飞船一根手指头；舱里的宇航员有手，却不知道该干什么。中间只有一条无线电。
+**One Python file that shows you the entire skeleton of an AI agent.**
 
-这就是今天所有 AI Agent 的工作方式：
+April 1970. The engineers in Houston had all the knowledge in the world, but couldn't lay a finger on the spacecraft. The astronauts had hands, but didn't know what to build. Between them: one radio loop.
 
-| 阿波罗13号 | Agent 系统 | 代码里的位置 |
+That is exactly how every AI agent works today:
+
+| Apollo 13 | Agent system | Where in the code |
 |---|---|---|
-| 休斯顿（有脑无手） | LLM | `houston_llm()` / `houston_offline()` |
-| 机舱（有手） | 运行时 | `execute()` |
-| 无线电喊话+复诵 | function calling + 参数校验 | `TOOLS` + `execute()` 里的打回逻辑 |
-| 一步步指挥 | 循环（心跳） | `main()` 里的 for 循环 |
-| 任务日志 | 上下文（工作台） | `messages` |
-| 状态板摘抄 | 便签压缩 | `compact()` |
-| 硬性验收标准 | 防"假完工" | `report_done` 的拒收逻辑 |
+| Houston (brain, no hands) | LLM | `houston_llm()` / `houston_offline()` |
+| The cabin (the hands) | runtime | `execute()` |
+| Radio calls + readback | function calling + validation | `TOOLS` + rejection logic in `execute()` |
+| Step-by-step guidance | the loop (heartbeat) | the `for` loop in `main()` |
+| Mission log | context window (the workbench) | `messages` |
+| Status-board notes | compaction | `compact()` |
+| Hard acceptance criteria | anti "fake done" | the refusal logic in `report_done` |
 
-## 快速开始
+## Quick start
 
-**不需要任何 API key，先看机制（推荐）：**
+**No API key needed — watch the mechanics first (recommended):**
 
 ```bash
 python3 houston.py --offline
 ```
 
-你会看到一场完整的救援：休斯顿逐步指挥机组收集材料、组装转接盒。剧本里埋了两次经典翻车：
+You'll watch a complete rescue: Houston directs the crew step by step to collect materials and assemble the adapter. Two classic failures are deliberately scripted in:
 
-- 第4轮，休斯顿喊"拿一只袜子"，船上没有袜子，机舱打回重说（**工具幻觉**。顺便说，真实史料的材料清单里就没有袜子，那是流传版本加的戏）
-- 第7轮，材料还没齐它就报告完工，地面按验收标准拒收（**假完工**）
+- **Turn 4** — Houston asks for *a sock*. There is no sock on board, and the cabin rejects the call: *"say again"* (**tool hallucination**. Fun fact: the sock isn't in the actual historical record either — it was added by retellings)
+- **Turn 7** — Houston reports the job done before the adapter is even assembled. Ground refuses sign-off against hard acceptance criteria (**fake done**)
 
-**让真的 LLM 来当休斯顿（任何 OpenAI 兼容接口）：**
+**Let a real LLM play Houston (any OpenAI-compatible API):**
 
 ```bash
 pip install openai
 
-export API_KEY=你的key
-export BASE_URL=https://api.deepseek.com   # 或其他兼容地址
-export MODEL=deepseek-chat                 # 或 qwen-plus / gpt-4o-mini 等
+export API_KEY=your_key
+export BASE_URL=https://api.deepseek.com   # or any compatible endpoint
+export MODEL=deepseek-chat                 # or qwen-plus / gpt-4o-mini etc.
 
 python3 houston.py
 ```
 
-真模型每次跑出来的路线都不一样，有时也会喊出不存在的工具、也会提前报完工，正好观察机舱怎么把它打回去。
+A real model takes a different route every run — sometimes it hallucinates a tool, sometimes it declares victory early. Watch the cabin send it back.
 
-## 这个演示想说明什么
+## What this demo is trying to say
 
-1. **大模型没有手。** 它全程只输出文字。真正取材料、装设备的是 `execute()`，模型连一个按钮都没按过。
-2. **Agent 不是新物种，是一个循环。** 主循环不到三十行：模型说话，是喊话就校验执行、结果回贴，到验收标准或撞到绳子（圈数/红线）就停。
-3. **手比脑更需要规矩。** 校验、打回、拒收、上限，这些"不信任模型"的部分，才是 agent 工程的主体。
+1. **The model has no hands.** It only ever outputs text. Everything that actually touches the world happens in `execute()`. The model never pressed a single button.
+2. **An agent is not a new species — it's a loop.** The main loop is under thirty lines: the model speaks; if it's a call, validate & execute & paste the result back; stop at the acceptance criteria or when you hit a rope (turn cap / red line).
+3. **Hands need rules more than brains do.** Validation, rejection, refusal, caps — the "don't trust the model" parts are the real body of agent engineering.
 
-真实的阿波罗13号"信箱"改装：材料是塑料袋、活页手册封面、登月服软管和灰胶带，CAPCOM Joe Kerwin 用了约一小时把步骤逐条念上太空。参考 [NASA Apollo Flight Journal](https://www.nasa.gov/history/afj/ap13fj/15day4-mailbox.html)。
+The real Apollo 13 "mailbox" was built from plastic bags, covers ripped from procedure manuals, suit hoses, and duct tape. CAPCOM Joe Kerwin read the build procedure up to the crew over about an hour. See the [NASA Apollo Flight Journal](https://www.nasa.gov/history/afj/ap13fj/15day4-mailbox.html).
+
+This repo is the companion code for a Chinese-language article on how agents work (《大模型没有手》, "The Model Has No Hands").
 
 ## License
 

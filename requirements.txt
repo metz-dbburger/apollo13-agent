@@ -1,2 +1,2 @@
-# 仅真 LLM 模式需要；--offline 模式零依赖
+# Only needed for live LLM mode; --offline mode has zero dependencies
 openai>=1.0
