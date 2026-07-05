@@ -50,7 +50,7 @@ SHIP = {
     "co2": 7.6,             # CO2 partial pressure, mmHg
     "co2_red_line": 15.0,   # cross this and the mission fails
     "co2_rise": 0.5,        # per-turn increase
-    "materials": ["duct tape", "plastic bag", "manual cover", "suit hose"],
+    "materials": ["duct tape", "plastic bag", "cue card", "suit hose"],
     "collected": [],        # what the crew has brought to hand
     "assembled": False,     # is the adapter built?
     "installed": False,     # is it installed?
@@ -190,7 +190,7 @@ OFFLINE_SCRIPT = [
     ("Start collecting. Duct tape first.",              "use_material",     {"item": "duct tape"}),
     ("Grab a sock to plug the gap.",                    "use_material",     {"item": "sock"}),        # tool hallucination: no sock in the record
     ("Copy that. Plastic bag instead.",                 "use_material",     {"item": "plastic bag"}),
-    ("Take the manual cover for the side panel.",       "use_material",     {"item": "manual cover"}),
+    ("Take the cue card for the side panel.",           "use_material",     {"item": "cue card"}),
     ("That should be enough. Reporting done.",          "report_done",      {"summary": "materials mostly ready"}),  # fake done: will be refused
     ("Understood, continuing. Get the suit hose.",      "use_material",     {"item": "suit hose"}),
     ("All four collected. Assemble the mailbox.",       "assemble_mailbox", {}),
